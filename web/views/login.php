@@ -40,7 +40,7 @@ if (mysqli_num_rows($res) > 0)
 
 while ($row = mysqli_fetch_array($res))
 {
-echo $row["names"];
+echo $row["ttext"];
 }
 
 
@@ -54,6 +54,14 @@ mysqli_free_result($res);
 ?>
 
 <html>
+<form action="Tinsert.php" method="post">
+<center><table>
 
-<>
+<tr><td>enter text</td><td>
+<input type="text" name="ttext" required></td></tr>
+
+<tr><td align="center" valign="middle">
+<input type="submit" name="enter" value="enter"></td>
+
+</html>
 
