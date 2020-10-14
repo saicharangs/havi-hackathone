@@ -1,8 +1,8 @@
 <html>
 <head>
-<title>voting application signup page</title>
+<title>Havi-Signup</title>
 <style>
-table{background-color:olive;}
+table{background-color:orange;}
 </style>
 <script type="text/javascript">
 function validateForm()
@@ -19,7 +19,6 @@ uname.focus();
 return false;
 }
 
-}
 if (pwd=="")
 {
 alert("password field is empty");
@@ -42,7 +41,7 @@ return false;
 }
 if(cpwd!=pwd)
 {
-alert("not matching , please enter right passowrd")
+alert("not matching , please enter right password")
 cpsd.focus();
 return false;
 }
@@ -56,7 +55,11 @@ return false;
 <tr><td>Username</td><td><input type="text" id="uname" name="uname" placeholder="pls enter username"
 size="40"></td></tr>
 <tr><td>Password</td><td><input type="password" id="psd" name="pwd"></td></tr>
-<tr><td>Confirm.PWD</td><td><input type="password" id="cpsd" name="cpsd"></td></tr>
+<tr><td>Confirm Password</td><td><input type="password" id="cpsd" name="cpsd"></td></tr>
+<tr><td>Date</td> <td><input type="date" id="date" name="date"></td></tr>
+<tr><td>Email</td><td><input type="email" id="email" name="email"></td></tr>
+<tr><td>PhoneNo</td><td><input type="number" id="phno" name="phno"></td></tr>
+
 <tr><td></td><td align="center" valign="middle"><input type="submit" value="sign up" ></td></tr>
 </table></center>
 </form>
