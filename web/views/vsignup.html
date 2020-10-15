@@ -3,6 +3,54 @@
 <title>Havi-Signup</title>
 <style>
 table{background-color:orange;}
+
+
+
+
+body{
+background-image: linear-gradient(rgba(200, 100, 255, 0.5), rgba(255, 255, 0, 0.5));
+                  
+}
+
+table{
+background-color:orange;
+border-radius: 25px;
+}
+
+h1 {
+  text-shadow: 2px 2px 4px;
+
+
+  
+  
+  background-color: yellow;
+}
+
+
+div{
+  
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 150px;
+  
+}
+
+.button {
+  background-color: yellow;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 1px;
+  cursor: pointer;
+border-radius: 25px;
+}
+
+
 </style>
 <script type="text/javascript">
 function validateForm()
@@ -50,8 +98,10 @@ return false;
 </script>
 </head>
 <body>
-<form name="myform" action="signup" method="POST" onsubmit="return validateForm()">
-<center><table>
+<h1 align="center">Sign-up To Login</h1>
+<div>
+<form name="myform" method="POST" onsubmit="return validateForm()">
+<center><table height="70%" width="30%">
 <tr><td>Username</td><td><input type="text" id="uname" name="uname" placeholder="pls enter username"
 size="40"></td></tr>
 <tr><td>Password</td><td><input type="password" id="psd" name="pwd"></td></tr>
@@ -60,8 +110,10 @@ size="40"></td></tr>
 <tr><td>Email</td><td><input type="email" id="email" name="email"></td></tr>
 <tr><td>PhoneNo</td><td><input type="number" id="phno" name="phno"></td></tr>
 
-<tr><td></td><td align="center" valign="middle"><input type="submit" value="sign up" ></td></tr>
+<tr><td></td><td align="center" valign="middle">
+<input type="submit" class="button" value="sign up" ></td></tr>
 </table></center>
 </form>
+</div>
 <body>
 </html>

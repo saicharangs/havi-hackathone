@@ -2,26 +2,66 @@
 <head>
 <title>Havi-hackathon-login</title>
 <style>
-table{background-color:coral;}
+
+
+body{
+background-image: linear-gradient(rgba(200, 100, 255, 0.5), rgba(255, 255, 0, 0.5));
+                  
+}
+
+table{
+background-color:orange;
+border-radius: 25px;
+}
+
+h1 {
+  text-shadow: 5px 2px 10px;  
+background-color: yellow;
+}
+.button {
+  background-color: yellow;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 1px;
+  cursor: pointer;
+border-radius: 25px;
+}
+
+div{
+  
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 150px;
+  
+}
 </style>
 </head>
+
 <body>
-<form action="login.php" method="post">
-<center><table>
+<h1 align=center>Login TO Enter</h1>
+<div class="">
+<form action="login" method="post" class="container">
+<center><table height="40%"  width="25%" >
 
 <tr><td>Username</td><td>
-<input type="text" name="uname" required></td></tr>
+<input type="text" name="uname" align ="center"required></td></tr>
 
 <tr><td>Password</td><td>
-<input type="password" name="pwd" required></td></tr>
+<input type="password" name="pwd" align="center" required></td></tr>
 
 <tr><td align="center" valign="middle">
-<input type="submit" name="signin" value="sign in"></td>
+<input text="whitw" class="button" type="submit" name="signin" value="sign in"></td>
 <td align="center" valign="middle">
-<input type="button" value="sign-up
+<input  type="button" class="button" value="sign-up
 "onClick="location.href='vsignup'"></td></tr>
 </table></center>
 </form>
-
+</div>
 </body>
 </html>

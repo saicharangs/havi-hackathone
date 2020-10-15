@@ -2,6 +2,9 @@
 
 require('../vendor/autoload.php');
 
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
 $app = new Silex\Application();
 $app['debug'] = true;
 
@@ -61,7 +64,7 @@ $app->get('/db/', function() use($app) {
   ));
 });
 
-$app->post('/signup', function (Request $request) {
+$app->post('/vsignup', function (Request $request) use($app) {
     $message = $request->get('message');
     $uid=$request->get('uname');
 	$pwd=$request->get('cpsd');
@@ -73,7 +76,37 @@ $app->post('/signup', function (Request $request) {
 	$st->execute();
 
 
-    return new Response('Successfully SIgnup!', 201);
+    return new Response('Successfully registered, please click here to <a href="https://havi-hackthon.herokuapp.com/">Login</a>', 201);
+});
+
+$app->post('/login', function (Request $request) use($app) {
+	$username=$request->get('uname');
+	$pass=$request->get('pwd');
+	
+	$st = $app['pdo']->prepare("SELECT password FROM table1 where uid='$username'");
+	$st->execute();
+
+	  $res = array();
+	  while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
+		$app['monolog']->addDebug('Row ' . $row['name']);
+		$res[] = $row;
+	  }
+	  
+	  $loggedinuser;
+	  
+	  foreach ($res as $key => $val) {
+		echo "$key => $val \n";
+		if($val['name']==$username && $val['password']==$pass)
+		{
+		  $loggedinuser	= $username;
+		}
+	  }
+	  
+	  if($loggedinuser != null) {
+		  return new Response('Login Successfully.', 200);
+	  } else {
+		  return new Response('Invalid username or password', 200);
+	  }
 });
 
 
