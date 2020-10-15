@@ -1,32 +1,28 @@
-# User Registration (Havi Hackathon Solution)
+# php-getting-started
 
-Application can be accessed at: https://havi-hackthon.herokuapp.com/
+A barebones PHP app that makes use of the [Silex](http://silex.sensiolabs.org/) web framework, which can easily be deployed to Heroku.
 
-Application support below functionality:
-* Registration 
-* Login
+This application supports the [Getting Started with PHP on Heroku](https://devcenter.heroku.com/articles/getting-started-with-php) article - check it out.
 
-Different fields supported for Registration:
+## Deploying
 
-Username
-Email
-Date of Birth (DOB)
-Phone NO
-Password
+Install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
 
-This application is developed using PHP and Posetgres deployed on Heroku
-
-## API Details
-
-* `POST /login` - Validates useername and password  and allow th euser to login
-* `POST /vsignup` Register the user with provided details
-
-## Instruction to develop and deploy
-* Login to heroku cli
-* Clone this repository
-* Run below commads after making changes:
+```sh
+$ git clone git@github.com:heroku/php-getting-started.git # or clone your own fork
+$ cd php-getting-started
+$ heroku create
+$ git push heroku main
+$ heroku open
 ```
-git add .
-git commit -m "Change message"
-git push heroku main
-```
+
+or
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+## Documentation
+
+For more information about using PHP on Heroku, see these Dev Center articles:
+
+- [Getting Started with PHP on Heroku](https://devcenter.heroku.com/articles/getting-started-with-php)
+- [PHP on Heroku](https://devcenter.heroku.com/categories/php)

@@ -109,7 +109,7 @@ $app->post('/login', function (Request $request) use($app) {
 	  }
 	  
 	  if($loggedinuser != null) {
-		  return new Response('Login Successfull.', 200);
+		  return new Response("Welcome $username Login Successfull.", 200);
 	  } else {
 		  return new Response('Invalid username or password, please try again with valid credentials. <a href="https://havi-hackthon.herokuapp.com/">Login</a>', 200);
 	  }
