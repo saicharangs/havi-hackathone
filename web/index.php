@@ -65,25 +65,31 @@ $app->get('/db/', function() use($app) {
 });
 
 $app->post('/vsignup', function (Request $request) use($app) {
-    $message = $request->get('message');
+    
     $uid=$request->get('uname');
 	$pwd=$request->get('cpsd');
 	$date=$request->get('date');
 	$email=$request->get('email');
-	$phno=$request->get('number');
+	$phno=$request->get('phno');
+	
+	$app['monolog']->addDebug('uname ' . $uid);
+	$app['monolog']->addDebug('cpsd ' . $pwd);
+	$app['monolog']->addDebug('date ' . $date);
+	$app['monolog']->addDebug('email ' . $email);
+	$app['monolog']->addDebug('phno ' . $phno);
 
 	$st = $app['pdo']->prepare("INSERT INTO table1(name,password,date,email,phoneNo) VALUES ('$uid','$pwd','$date','$email','&phno')");
 	$st->execute();
 
 
-    return new Response('Successfully registered, please click here to <a href="https://havi-hackthon.herokuapp.com/">Login</a>', 201);
+    return new Response('Successfully registered, please click here to <a href="https://havi-hackthon.herokuapp.com/">Login</a>', 200);
 });
 
 $app->post('/login', function (Request $request) use($app) {
 	$username=$request->get('uname');
 	$pass=$request->get('pwd');
-	
-	$st = $app['pdo']->prepare("SELECT password FROM table1 where uid='$username'");
+	$app['monolog']->addDebug('debug1 ' . $username);
+	$st = $app['pdo']->prepare("SELECT * FROM table1 where name='$username'");
 	$st->execute();
 
 	  $res = array();
@@ -92,10 +98,10 @@ $app->post('/login', function (Request $request) use($app) {
 		$res[] = $row;
 	  }
 	  
-	  $loggedinuser;
+	  $app['monolog']->addDebug('debug2 ' . $res);
+	  
 	  
 	  foreach ($res as $key => $val) {
-		echo "$key => $val \n";
 		if($val['name']==$username && $val['password']==$pass)
 		{
 		  $loggedinuser	= $username;
@@ -103,9 +109,9 @@ $app->post('/login', function (Request $request) use($app) {
 	  }
 	  
 	  if($loggedinuser != null) {
-		  return new Response('Login Successfully.', 200);
+		  return new Response('Login Successfull.', 200);
 	  } else {
-		  return new Response('Invalid username or password', 200);
+		  return new Response('Invalid username or password, please try again with valid credentials. <a href="https://havi-hackthon.herokuapp.com/">Login</a>', 200);
 	  }
 });
 
